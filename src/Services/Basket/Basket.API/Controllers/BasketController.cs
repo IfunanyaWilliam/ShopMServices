@@ -50,7 +50,8 @@ namespace Basket.API.Controllers
                 //item.Price -= coupon.Amount;
             }
 
-            return Ok(await _repository.UpdateBasket(basket));
+            var response = await _repository.UpdateBasket(basket);
+            return Ok(response);
         }
 
         [HttpDelete("{userName}", Name = "DeleteBasket")]
