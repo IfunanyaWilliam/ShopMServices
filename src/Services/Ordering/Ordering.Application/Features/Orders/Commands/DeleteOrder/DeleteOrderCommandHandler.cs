@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
 {
-    public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand>
+    public class DeleteOrderCommandHandler : IRequestHandler<DeleteOrderCommand, Unit>
     {
         private readonly IOrderRepository _orderRepository;
         private readonly IMapper _mapper;
@@ -36,11 +36,6 @@ namespace Ordering.Application.Features.Orders.Commands.DeleteOrder
             _logger.LogInformation($"Order {orderToDelete.Id} is successfully deleted.");
 
             return Unit.Value;
-        }
-
-        Task IRequestHandler<DeleteOrderCommand>.Handle(DeleteOrderCommand request, CancellationToken cancellationToken)
-        {
-            throw new NotImplementedException();
         }
     }
 }
